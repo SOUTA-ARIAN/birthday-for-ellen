@@ -18,7 +18,7 @@ function Letter() {
                         deleteSpeed: 50
                     }}/>
             </div>
-            <img className="floating-img" src="public/img/ellen-ultahhh.png" alt="letter"/>
+            <img className="floating-img" src="dist/img/ellen ultah-removebg-preview.png" alt="letter"/>
             <div>
                 <button className="btn" onClick={() => navigate("/")}>
                     Go Back
