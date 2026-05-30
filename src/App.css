@@ -15,7 +15,7 @@ html{
 
   color-scheme: light dark;
   color: #BE5985;
-  background-color: #FFEDFA;
+  background-color: #F8F1E5;
 }
 
 .app {
@@ -29,12 +29,143 @@ html{
   padding: 20px;
 }
 
+.home-layout {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.home-left,
+.home-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/img/tampilan%20awal%20.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.01);
+  z-index: 0;
+}
+
+.home-left > .home-bg {
+  z-index: 0;
+}
+
+.home-left > .falling-flowers-screen,
+.home-left > .falling-flowers-screen * {
+  z-index: 1;
+  position: absolute;
+}
+
+
+
+.home-right {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-center {
+  display: flex;
+  justify-content: center;
+}
+
+.home-side-image {
+  display: block;
+  width: 220px;
+  height: auto;
+  animation: none;
+}
+
+/* falling flowers animation (pure CSS, no extra assets) */
+.falling-flowers-screen {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.falling-flowers-screen .flower {
+  position: absolute;
+  top: -30px;
+  font-size: 26px;
+  opacity: 0.95;
+  animation-name: flowerFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.falling-flowers-screen .flower-1 { left: 10%; animation-duration: 3.1s; animation-delay: 0s; }
+.falling-flowers-screen .flower-2 { left: 20%; animation-duration: 3.6s; animation-delay: 0.5s; }
+.falling-flowers-screen .flower-3 { left: 35%; animation-duration: 3.2s; animation-delay: 1s; }
+.falling-flowers-screen .flower-4 { left: 50%; animation-duration: 3.8s; animation-delay: 0.2s; }
+.falling-flowers-screen .flower-5 { left: 62%; animation-duration: 3.3s; animation-delay: 1.2s; }
+.falling-flowers-screen .flower-6 { left: 72%; animation-duration: 3.5s; animation-delay: 0.8s; }
+.falling-flowers-screen .flower-7 { left: 82%; animation-duration: 3.7s; animation-delay: 0.1s; }
+.falling-flowers-screen .flower-8 { left: 92%; animation-duration: 3.4s; animation-delay: 1.4s; }
+
+.falling-flowers-screen .flower-9 { left: 15%; animation-duration: 3.9s; animation-delay: 0.7s; }
+.falling-flowers-screen .flower-10 { left: 28%; animation-duration: 3.4s; animation-delay: 1.5s; }
+.falling-flowers-screen .flower-11 { left: 58%; animation-duration: 3.6s; animation-delay: 0.3s; }
+.falling-flowers-screen .flower-12 { left: 86%; animation-duration: 3.2s; animation-delay: 1.0s; }
+
+@keyframes flowerFall {
+  0% { transform: translateY(-40px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(220deg); }
+}
+
+
+
+
+
+.home-left-image {
+  width: 230px;
+}
+
+.home-right-image {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .home-left,
+  .home-right {
+    flex-direction: row;
+  }
+
+  .home-side-image {
+    width: 150px;
+  }
+
+  .home-right {
+    flex-direction: column;
+  }
+}
+
 .text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 
 .text {
   font-size: 3rem;
