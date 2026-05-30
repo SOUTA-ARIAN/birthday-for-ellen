@@ -82,6 +82,13 @@ html{
   justify-content: center;
 }
 
+.home-kue {
+  width: 220px;
+  height: auto;
+  margin: 10px 0;
+}
+
+
 .home-side-image {
   display: block;
   width: 220px;
@@ -95,8 +102,14 @@ html{
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
+  z-index: 5;
 }
+
+/* Ensure flowers are visible even if parent stacking contexts change */
+.falling-flowers-screen .flower {
+  z-index: 10;
+}
+
 
 .falling-flowers-screen .flower {
   position: absolute;
@@ -240,6 +253,63 @@ html{
   .text{
     font-size: 2rem;
   }
+}
+
+/* TheBirthdayLetter side-by-side layout */
+.the-birthday-letter-side-by-side {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 0 10px;
+}
+
+.the-birthday-letter-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.the-birthday-letter-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.the-birthday-letter-left img,
+.the-birthday-letter-left .floating-img {
+  width: 260px;
+  max-width: 40vw;
+  height: auto;
+}
+
+.the-birthday-letter-center .letter {
+  /* biar teks tetap rapi di dalam area surat */
+  max-width: 520px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+
+.the-birthday-letter-right {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .the-birthday-letter-side-by-side {
+    grid-template-columns: 1fr;
+  }
+  .the-birthday-letter-left {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+
 
   .paper {
       width: 300px; 
